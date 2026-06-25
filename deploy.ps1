@@ -85,7 +85,7 @@ if ($remoteExists) {
     }
 
     Write-Host "Connecting to server and triggering git-based remote deploy..." -ForegroundColor Blue
-    $REMOTE_CMD = "if [ ! -d $REMOTE_DIR/.git ]; then git clone $REMOTE_REPO $REMOTE_DIR; fi && cd $REMOTE_DIR && git remote set-url origin $REMOTE_REPO && git fetch origin main && git reset --hard origin/main && chmod +x deploy_linux.sh && ./deploy_linux.sh"
+    $REMOTE_CMD = "if [ ! -d $REMOTE_DIR/.git ]; then git clone $REMOTE_REPO $REMOTE_DIR; fi && cd $REMOTE_DIR && git remote set-url origin $REMOTE_REPO && git fetch origin main && git reset --hard origin/main && sed -i 's/\r$//' deploy_linux.sh && chmod +x deploy_linux.sh && bash deploy_linux.sh"
     ssh $SSH_HOST $REMOTE_CMD
 } else {
     if ($NoDirectFallback) {
@@ -112,7 +112,7 @@ if ($remoteExists) {
         exit $LASTEXITCODE
     }
 
-    $REMOTE_CMD = "mkdir -p $REMOTE_DIR && cd $REMOTE_DIR && tar -xzf /tmp/$ARCHIVE_NAME && chmod +x deploy_linux.sh && SKIP_GIT_SYNC=1 ./deploy_linux.sh"
+    $REMOTE_CMD = "mkdir -p $REMOTE_DIR && cd $REMOTE_DIR && tar -xzf /tmp/$ARCHIVE_NAME && sed -i 's/\r$//' deploy_linux.sh && chmod +x deploy_linux.sh && SKIP_GIT_SYNC=1 bash deploy_linux.sh"
     ssh $SSH_HOST $REMOTE_CMD
 }
 
