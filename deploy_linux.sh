@@ -173,7 +173,7 @@ systemctl reload nginx
 
 log "Running health checks..."
 for attempt in {1..20}; do
-    if curl -fsS "http://127.0.0.1:$BACKEND_PORT/health" > /dev/null; then
+    if curl -fsS "http://127.0.0.1:$BACKEND_PORT/health" > /dev/null 2>&1; then
         break
     fi
     if [ "$attempt" -eq 20 ]; then
