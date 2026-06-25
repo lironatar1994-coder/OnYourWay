@@ -15,7 +15,7 @@ $SSH_HOST = "root@vee-app.co.il"
 $SSH_DOMAIN = "vee-app.co.il"
 $REMOTE_REPO = "https://github.com/lironatar1994-coder/On-Your-Way.git"
 $REMOTE_DIR = "/root/On-Your-Way"
-$ARCHIVE_NAME = "on-your-way-deploy.zip"
+$ARCHIVE_NAME = "on-your-way-deploy.tar.gz"
 
 Write-Host "--- Starting On Your Way Deployment ---" -ForegroundColor Cyan
 
@@ -100,7 +100,7 @@ if ($remoteExists) {
         Remove-Item -LiteralPath $archivePath -Force
     }
 
-    git archive --format=zip -o $archivePath HEAD
+    git archive --format=tar.gz -o $archivePath HEAD
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Error: Failed to create deployment archive." -ForegroundColor Red
         exit $LASTEXITCODE
@@ -112,7 +112,7 @@ if ($remoteExists) {
         exit $LASTEXITCODE
     }
 
-    $REMOTE_CMD = "mkdir -p $REMOTE_DIR && cd $REMOTE_DIR && unzip -oq /tmp/$ARCHIVE_NAME && chmod +x deploy_linux.sh && SKIP_GIT_SYNC=1 ./deploy_linux.sh"
+    $REMOTE_CMD = "mkdir -p $REMOTE_DIR && cd $REMOTE_DIR && tar -xzf /tmp/$ARCHIVE_NAME && chmod +x deploy_linux.sh && SKIP_GIT_SYNC=1 ./deploy_linux.sh"
     ssh $SSH_HOST $REMOTE_CMD
 }
 
