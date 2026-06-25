@@ -1,14 +1,15 @@
 # STATE.md
 
 ## Current Status
-Phase 10 - Server Deployment Setup (Implementation In Progress)
+Phase 10 - Server Deployment Setup (Completed, DNS/GitHub Follow-up Pending)
 
 ## Next Immediate Steps
 1. Build and inspect `/admin` after the Dispatch Control visual rework.
 2. User should manually test Admin CRM dispatch flow at `http://localhost:5173`.
 3. Confirm urgent queue styling highlights phone-call tickets missing information, unassigned/new tickets, and failed WhatsApp dispatches.
 4. Confirm ranked suggestions, assign/retry/close actions, and sticky drawer footer still work.
-5. Run `.\deploy.ps1` and verify production hosts `http://on-your-way.vee-app.co.il` and `http://admin.on-your-way.vee-app.co.il`.
+5. Create/enable GitHub repo `https://github.com/lironatar1994-coder/On-Your-Way.git`; current deployment used the script's direct archive fallback because the repo does not exist yet.
+6. Add DNS records for `on-your-way.vee-app.co.il` and `admin.on-your-way.vee-app.co.il`; Nginx is configured and responds by Host header on the server, but public DNS does not resolve yet from this machine.
 
 Historical Phase 8 manual checks:
 1. User should manually test Admin CRM dispatch flow at `http://localhost:5173`.
@@ -57,6 +58,10 @@ Historical Phase 8 manual checks:
 - Started Admin CRM dev server on `http://localhost:5173` for manual visual review; in-app browser targets were unavailable in this session, so screenshot QA is still pending.
 - Added deployment scripts copied/adapted from the existing ServerMonitor/Vee pattern: root `deploy.ps1` and server-side `deploy_linux.sh`.
 - Deployment target is `root@vee-app.co.il`, remote directory `/root/On-Your-Way`, GitHub repo `https://github.com/lironatar1994-coder/On-Your-Way.git`, public host `http://on-your-way.vee-app.co.il`, and admin host `http://admin.on-your-way.vee-app.co.il`.
+- Deployed to the server with `.\deploy.ps1` using direct archive fallback because the GitHub repo is not created yet.
+- Production PM2 processes are running: `on-your-way-backend` on port `3004` and `on-your-way-frontend` on port `3101`.
+- Production Nginx config is installed for `on-your-way.vee-app.co.il` and `admin.on-your-way.vee-app.co.il`; server-local Host-header checks return the public landing HTML, Admin CRM HTML, and backend `/health`.
+- Public DNS lookup for the new subdomains currently fails from this machine, so external browser access needs DNS records before it works.
 
 ## Frontend Review Outcome (Reviewed 2026-06-25)
 - Scope reviewed: BOTH frontends exist: operator Admin CRM (`/admin`) and public lead-capture landing (`/frontend`).
