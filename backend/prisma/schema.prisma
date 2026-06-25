@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Provider {
+  id             String           @id @default(cuid())
+  name           String
+  phoneNumber    String
+  whatsappJid    String?
+  category       String?
+  serviceText    String?
+  serviceArea    String?
+  priority       Int              @default(100)
+  dailyLeadLimit Int?
+  isActive       Boolean          @default(true)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  leads          Lead[]
+  assignments    LeadAssignment[]
+
+  @@index([isActive, category, priority])
+}
+
+model Lead {
+  id                 String           @id @default(cuid())
+  fullName           String
+  phoneNumber        String
+  email              String?
+  serviceType        String?
+  requestText        String?
+  city               String?
+  notes              String?
+  resolutionStatus   String?
+  source             String           @default("web-form")
+  status             LeadStatus       @default(NEW)
+  assignedProviderId String?
+  assignedProvider   Provider?        @relation(fields: [assignedProviderId], references: [id])
+  assignments        LeadAssignment[]
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  @@index([serviceType, status, createdAt])
+  @@index([assignedProviderId])
+}
+
+model LeadAssignment {
+  id                       String             @id @default(cuid())
+  leadId                   String
+  providerId               String
+  status                   AssignmentStatus   @default(ASSIGNED)
+  notificationStatus       NotificationStatus @default(PENDING)
+  notificationError        String?
+  notificationAttemptedAt  DateTime?
+  notifiedAt               DateTime?
+  lead                     Lead               @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  provider                 Provider           @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  createdAt                DateTime           @default(now())
+  acceptedAt               DateTime?
+  rejectedAt               DateTime?
+
+  @@unique([leadId, providerId])
+  @@index([providerId, status, createdAt])
+  @@index([notificationStatus, notificationAttemptedAt])
+}
+
+enum LeadStatus {
+  NEW
+  ASSIGNED
+  UNASSIGNED
+  CLOSED
+}
+
+enum AssignmentStatus {
+  ASSIGNED
+  ACCEPTED
+  REJECTED
+  EXPIRED
+}
+
+enum NotificationStatus {
+  PENDING
+  SENT
+  FAILED
+  SKIPPED
+}

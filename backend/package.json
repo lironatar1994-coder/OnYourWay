@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:setup": "node scripts/setup-db.js",
+    "start": "node index.js",
+    "test": "prisma validate && node --check index.js && node --check lib/prisma.js && node --check lib/provider-matching.js && node --check routes/providers.js && node --check routes/leads.js && node --check scripts/setup-db.js && node --check services/whatsapp/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "@whiskeysockets/baileys": "^7.0.0-rc13",
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pino": "^10.3.1",
+    "prisma": "^7.8.0",
+    "qrcode": "^1.5.4"
+  }
+}
