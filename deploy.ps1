@@ -73,7 +73,7 @@ if ($status) {
 }
 
 Write-Host "Checking GitHub repository $REMOTE_REPO..." -ForegroundColor Gray
-git ls-remote $REMOTE_REPO HEAD *> $null
+cmd /c "git ls-remote $REMOTE_REPO HEAD >NUL 2>NUL"
 $remoteExists = ($LASTEXITCODE -eq 0)
 
 if ($remoteExists) {
