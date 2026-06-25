@@ -71,6 +71,7 @@ cd "$APP_ROOT/backend"
 run_npm_install
 npm rebuild better-sqlite3 --silent || true
 ensure_backend_env
+npm run db:generate
 npm run db:setup
 npm run test
 
@@ -165,7 +166,17 @@ nginx -t
 systemctl reload nginx
 
 log "Running health checks..."
-curl -fsS "http://127.0.0.1:$BACKEND_PORT/health" > /dev/null
+for attempt in {1..20}; do
+    if curl -fsS "http://127.0.0.1:$BACKEND_PORT/health" > /dev/null; then
+        break
+    fi
+    if [ "$attempt" -eq 20 ]; then
+        log "Backend health check failed after waiting." "ERROR"
+        pm2 logs "$BACKEND_PROCESS" --lines 80 --nostream --no-color || true
+        exit 1
+    fi
+    sleep 1
+done
 curl -fsS "http://127.0.0.1:$FRONTEND_PORT/" > /dev/null
 curl -fsS -H "Host: admin.on-your-way.vee-app.co.il" "http://127.0.0.1/" > /dev/null
 
