@@ -93,21 +93,15 @@ NEXT_BASE_PATH="$ROUTE_BASE" NEXT_PUBLIC_BASE_PATH="$ROUTE_BASE" BACKEND_URL="ht
 
 log "Starting/restarting PM2 backend process..."
 cd "$APP_ROOT/backend"
-if pm2 describe "$BACKEND_PROCESS" > /dev/null; then
-    PORT="$BACKEND_PORT" DATABASE_URL="file:./prisma/prod.db" pm2 restart "$BACKEND_PROCESS" --update-env
-else
-    PORT="$BACKEND_PORT" DATABASE_URL="file:./prisma/prod.db" \
-        pm2 start index.js --name "$BACKEND_PROCESS" --cwd "$APP_ROOT/backend" --update-env
-fi
+pm2 delete "$BACKEND_PROCESS" > /dev/null 2>&1 || true
+PORT="$BACKEND_PORT" DATABASE_URL="file:./prisma/prod.db" \
+    pm2 start index.js --name "$BACKEND_PROCESS" --cwd "$APP_ROOT/backend" --update-env
 
 log "Starting/restarting PM2 public frontend process..."
 cd "$APP_ROOT/frontend"
-if pm2 describe "$FRONTEND_PROCESS" > /dev/null; then
-    NEXT_BASE_PATH="$ROUTE_BASE" NEXT_PUBLIC_BASE_PATH="$ROUTE_BASE" BACKEND_URL="http://127.0.0.1:$BACKEND_PORT" PORT="$FRONTEND_PORT" pm2 restart "$FRONTEND_PROCESS" --update-env
-else
-    NEXT_BASE_PATH="$ROUTE_BASE" NEXT_PUBLIC_BASE_PATH="$ROUTE_BASE" BACKEND_URL="http://127.0.0.1:$BACKEND_PORT" PORT="$FRONTEND_PORT" \
-        pm2 start npm --name "$FRONTEND_PROCESS" --cwd "$APP_ROOT/frontend" -- start
-fi
+pm2 delete "$FRONTEND_PROCESS" > /dev/null 2>&1 || true
+NEXT_BASE_PATH="$ROUTE_BASE" NEXT_PUBLIC_BASE_PATH="$ROUTE_BASE" BACKEND_URL="http://127.0.0.1:$BACKEND_PORT" PORT="$FRONTEND_PORT" \
+    pm2 start npm --name "$FRONTEND_PROCESS" --cwd "$APP_ROOT/frontend" -- start
 
 pm2 save > /dev/null
 
