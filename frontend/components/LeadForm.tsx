@@ -33,6 +33,8 @@ const EMPTY: FormState = {
   requestText: '',
 };
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export function LeadForm() {
   const [form, setForm] = useState<FormState>(EMPTY);
   const [submitting, setSubmitting] = useState(false);
@@ -57,7 +59,7 @@ export function LeadForm() {
       const payload = Object.fromEntries(
         Object.entries(form).filter(([, v]) => String(v ?? '').trim() !== ''),
       );
-      const res = await fetch('/api/leads', {
+      const res = await fetch(`${BASE_PATH}/api/leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

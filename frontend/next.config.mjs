@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NEXT_BASE_PATH || '';
+
 const nextConfig = {
   reactStrictMode: true,
-  // Pin file tracing to this app — a stray lockfile in the home dir otherwise
-  // makes Next infer the wrong workspace root.
   outputFileTracingRoot: import.meta.dirname,
+  ...(basePath ? { basePath, assetPrefix: basePath } : {}),
 };
 
 export default nextConfig;

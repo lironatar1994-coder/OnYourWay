@@ -10,6 +10,8 @@ import { ProvidersPage } from './pages/ProvidersPage';
 import './styles/tokens.css';
 import './styles/app.css';
 
+const basename = import.meta.env.BASE_URL === '/' ? undefined : import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
       { path: '*', element: <Navigate to="/dashboard" replace /> },
     ],
   },
-]);
+], { basename });
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

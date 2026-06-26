@@ -13,8 +13,8 @@ $ErrorActionPreference = "Stop"
 
 $SSH_HOST = "root@vee-app.co.il"
 $SSH_DOMAIN = "vee-app.co.il"
-$REMOTE_REPO = "https://github.com/lironatar1994-coder/On-Your-Way.git"
-$REMOTE_DIR = "/root/On-Your-Way"
+$REMOTE_REPO = "https://github.com/lironatar1994-coder/OnYourWay.git"
+$REMOTE_DIR = "/root/OnYourWay"
 $ARCHIVE_NAME = "on-your-way-deploy.tar.gz"
 
 Write-Host "--- Starting On Your Way Deployment ---" -ForegroundColor Cyan
@@ -125,6 +125,6 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "`n================================================" -ForegroundColor Green
 Write-Host "      ON YOUR WAY DEPLOYED SUCCESSFULLY" -ForegroundColor Green
 Write-Host "================================================" -ForegroundColor Green
-Write-Host "Public: http://on-your-way.vee-app.co.il" -ForegroundColor Cyan
-Write-Host "Admin:  http://admin.on-your-way.vee-app.co.il" -ForegroundColor Cyan
+Write-Host "Public: https://vee-app.co.il/OnYourWay" -ForegroundColor Cyan
+Write-Host "Admin:  https://vee-app.co.il/OnYourWay/admin" -ForegroundColor Cyan
 Write-Host "GitHub target: $REMOTE_REPO" -ForegroundColor Cyan

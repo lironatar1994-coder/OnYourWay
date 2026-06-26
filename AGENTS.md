@@ -41,9 +41,9 @@ The current frontend implementation was reviewed. Treat the design direction bel
 ## Tech & Run Notes
 
 ### Deployment
-* Deployment runner: use root `.\deploy.ps1` from Windows. It targets `root@vee-app.co.il`, GitHub repo `https://github.com/lironatar1994-coder/On-Your-Way.git`, remote directory `/root/On-Your-Way`, and runs server-side `deploy_linux.sh`.
+* Deployment runner: use root `.\deploy.ps1` from Windows. It targets `root@vee-app.co.il`, GitHub repo `https://github.com/lironatar1994-coder/OnYourWay.git`, remote directory `/root/OnYourWay`, and runs server-side `deploy_linux.sh`.
 * Production ports: backend API runs through PM2 as `on-your-way-backend` on port `3004`; public Next.js frontend runs through PM2 as `on-your-way-frontend` on port `3101`; Admin CRM is built static to `/var/www/on-your-way-admin`.
-* Production Nginx hosts: public landing at `http://on-your-way.vee-app.co.il`, Admin CRM at `http://admin.on-your-way.vee-app.co.il`, and both proxy `/api/` to the backend.
+* Production Nginx route: public landing at `https://vee-app.co.il/OnYourWay`, Admin CRM at `https://vee-app.co.il/OnYourWay/admin`, and both proxy `/OnYourWay/api/` to the backend.
 
 * Preferred local runner: use root `.\run.ps1` to install missing dependencies, apply local SQLite setup, start `/admin`, start `/frontend`, and run `/backend` in the foreground so the WhatsApp QR remains visible. Use `.\run.ps1 -Stop` to stop admin/frontend processes started by the script.
 * `/admin` — React 19 + Vite + TypeScript. State/fetching via `@tanstack/react-query` (polls leads/providers/health every 5s so async WhatsApp status updates appear live). Routing via `react-router-dom`. Hand-authored CSS design tokens (no UI kit). Dev server: `npm run dev` → http://localhost:5173. Vite must use `--configLoader runner` in this Windows workspace.

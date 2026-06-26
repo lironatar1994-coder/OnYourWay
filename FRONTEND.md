@@ -170,11 +170,11 @@ Runtime URLs:
 Production deployment:
 
 - Local deploy command: `.\deploy.ps1`
-- GitHub target: `https://github.com/lironatar1994-coder/On-Your-Way.git`
-- Server target: `root@vee-app.co.il:/root/On-Your-Way`
-- Public frontend: `http://on-your-way.vee-app.co.il`
-- Admin CRM: `http://admin.on-your-way.vee-app.co.il`
-- Backend API: proxied through `/api/` on both production hosts to PM2 process `on-your-way-backend` on port `3004`.
+- GitHub target: `https://github.com/lironatar1994-coder/OnYourWay.git`
+- Server target: `root@vee-app.co.il:/root/OnYourWay`
+- Public frontend: `https://vee-app.co.il/OnYourWay`
+- Admin CRM: `https://vee-app.co.il/OnYourWay/admin`
+- Backend API: proxied through `/OnYourWay/api/` to PM2 process `on-your-way-backend` on port `3004`.
 
 ## Future Development Rules
 
