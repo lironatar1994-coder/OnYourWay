@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @keyframes brd-ring { 0%{transform:scale(1);opacity:.7} 70%{transform:scale(2.6);opacity:0} 100%{opacity:0} }
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+
+<!-- ============ A — ALL DARK (refined) ============ -->
+<div style="position:absolute; left:0; top:0; width:412px;">
+  <div data-drags-parent="1" style="display:flex; align-items:baseline; gap:10px; margin-bottom:14px; font-family:'Heebo',sans-serif;">
+    <span style="font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#3a3f4b;">A</span>
+    <span style="font-size:13px; color:#8b91a0;">כהה · נועז ודחוף</span>
+  </div>
+
+  <div dir="rtl" data-screen-label="A — All Dark" style="width:412px; border-radius:46px; overflow:hidden; background:#14161B; box-shadow:0 40px 90px -34px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04); font-family:'Heebo',sans-serif; color:#ECEEF2; position:relative;">
+
+    <!-- top bar -->
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:18px 22px; position:relative; z-index:6;">
+      <div style="display:flex; align-items:center; gap:11px;">
+        <div style="width:38px; height:38px; border-radius:11px; background:#F2B23C; display:flex; align-items:center; justify-content:center; position:relative;">
+          <div style="width:14px; height:14px; border:3.5px solid #14161B; border-bottom:none; border-radius:9px 9px 0 0; position:absolute; top:7px;"></div>
+          <div style="width:18px; height:13px; background:#14161B; border-radius:4px; position:absolute; bottom:8px;"></div>
+        </div>
+        <div style="line-height:1.05;">
+          <div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:17px;">בדרך אליך</div>
+          <div style="font-size:10.5px; color:#8b91a0; font-weight:500;">מחברים אתכם למנעולן מקצועי</div>
+        </div>
+      </div>
+      <a href="tel:050-123-4567" style="text-decoration:none; display:flex; align-items:center; gap:6px; padding:8px 13px; border-radius:999px; border:1px solid rgba(242,178,60,.4); color:#F2B23C; font-size:13px; font-weight:700;"><span style="font-size:14px;">☎︎</span>חייגו</a>
+    </div>
+
+    <!-- hero with real photo -->
+    <div style="position:relative; min-height:430px;">
+      <image-slot id="heroA" style="position:absolute; inset:0; width:100%; height:100%; display:block;" shape="rect" placeholder="גררו לכאן תמונת מנעולן בעבודה"></image-slot>
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,22,27,.35) 0%, rgba(20,22,27,.72) 52%, #14161B 100%);"></div>
+      <div style="position:relative; padding:18px 22px 30px;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:rgba(20,22,27,.55); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.12); margin-bottom:130px;">
+          <span style="position:relative; width:8px; height:8px;"><span style="position:absolute; inset:0; border-radius:999px; background:#4FB477;"></span><span style="position:absolute; inset:0; border-radius:999px; background:#4FB477; animation:brd-ring 2s infinite;"></span></span>
+          <span style="font-size:12px; font-weight:600; color:#E7E9ED;">מוקד אנושי פעיל עכשיו</span>
+        </div>
+
+        <div style="font-family:'Heebo',sans-serif; font-weight:700; font-size:15px; color:#F2B23C; margin-bottom:8px;">נעולים בחוץ?</div>
+        <h1 style="font-family:'Rubik',sans-serif; font-weight:900; font-size:44px; line-height:1.0; margin:0 0 16px; letter-spacing:-.01em;">
+          מנעולן מקצועי<br><span style="color:#F2B23C;">בדרך אליך.</span>
+        </h1>
+        <p style="font-size:15px; line-height:1.55; color:#C4C8D1; margin:0 0 24px; max-width:330px;">
+          שיחה אחת — ואנחנו מאתרים עבורכם מנעולן מורשה וזמין, הקרוב ביותר אליכם. בכל שעה, בכל אזור המרכז.
+        </p>
+
+        <a href="tel:050-123-4567" style="display:flex; align-items:center; justify-content:center; gap:13px; text-decoration:none; padding:19px; border-radius:15px; background:#F2B23C; box-shadow:0 12px 30px -14px rgba(242,178,60,.7); border-top:1px solid rgba(255,255,255,.35); margin-bottom:12px;">
+          <span style="font-size:20px; color:#14161B;">☎︎</span>
+          <span style="text-align:right; line-height:1.0;">
+            <span style="display:block; font-size:11px; font-weight:700; color:#6e520c;">חייגו עכשיו · זמינים 24/7</span>
+            <span style="display:block; font-family:'Rubik',sans-serif; font-weight:900; font-size:25px; color:#14161B; letter-spacing:.02em;">050-123-4567</span>
+          </span>
+        </a>
+        <div style="display:flex; align-items:center; justify-content:center; gap:16px; font-size:12px; color:#9298A4;">
+          <span>מענה אנושי תוך שניות</span><span style="color:#3a3f4b;">•</span><span>ללא התחייבות בשיחה</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- trust strip -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; background:#0F1116; border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05);">
+      <div style="padding:17px 5px; text-align:center; border-left:1px solid rgba(255,255,255,.05);"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#F2B23C;">10K+</div><div style="font-size:9.5px; color:#8b91a0; margin-top:3px;">פניות טופלו</div></div>
+      <div style="padding:17px 5px; text-align:center; border-left:1px solid rgba(255,255,255,.05);"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#F2B23C;">ארצית</div><div style="font-size:9.5px; color:#8b91a0; margin-top:3px;">פריסת מנעולנים</div></div>
+      <div style="padding:17px 5px; text-align:center; border-left:1px solid rgba(255,255,255,.05);"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#F2B23C;">24/7</div><div style="font-size:9.5px; color:#8b91a0; margin-top:3px;">מענה חי</div></div>
+      <div style="padding:17px 5px; text-align:center;"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#F2B23C;">5.0★</div><div style="font-size:9.5px; color:#8b91a0; margin-top:3px;">דירוג לקוחות</div></div>
+    </div>
+
+    <!-- how it works -->
+    <div style="padding:32px 22px 6px;">
+      <div style="font-size:11px; font-weight:800; letter-spacing:.16em; color:#F2B23C; margin-bottom:7px;">איך זה עובד</div>
+      <h2 style="font-family:'Rubik',sans-serif; font-weight:800; font-size:25px; margin:0 0 22px; line-height:1.12;">שיחה אחת, וכל השאר עלינו</h2>
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <div style="display:flex; gap:16px;">
+          <div style="display:flex; flex-direction:column; align-items:center; flex:none;">
+            <div style="width:36px; height:36px; border-radius:50%; background:rgba(242,178,60,.13); color:#F2B23C; font-family:'Rubik',sans-serif; font-weight:900; font-size:16px; display:flex; align-items:center; justify-content:center;">1</div>
+            <div style="width:2px; flex:1; background:rgba(255,255,255,.07); margin:4px 0;"></div>
+          </div>
+          <div style="padding-bottom:20px;"><div style="font-weight:700; font-size:16px; margin-bottom:4px;">מתקשרים אלינו</div><div style="font-size:13px; color:#9298A4; line-height:1.5;">מענה אנושי תוך שניות — מבינים מה קרה ואיפה אתם.</div></div>
+        </div>
+        <div style="display:flex; gap:16px;">
+          <div style="display:flex; flex-direction:column; align-items:center; flex:none;">
+            <div style="width:36px; height:36px; border-radius:50%; background:rgba(242,178,60,.13); color:#F2B23C; font-family:'Rubik',sans-serif; font-weight:900; font-size:16px; display:flex; align-items:center; justify-content:center;">2</div>
+            <div style="width:2px; flex:1; background:rgba(255,255,255,.07); margin:4px 0;"></div>
+          </div>
+          <div style="padding-bottom:20px;"><div style="font-weight:700; font-size:16px; margin-bottom:4px;">מאתרים לכם מנעולן</div><div style="font-size:13px; color:#9298A4; line-height:1.5;">את הזמין והקרוב ביותר אליכם מתוך הרשת שלנו.</div></div>
+        </div>
+        <div style="display:flex; gap:16px;">
+          <div style="display:flex; flex-direction:column; align-items:center; flex:none;">
+            <div style="width:36px; height:36px; border-radius:50%; background:#F2B23C; color:#14161B; font-family:'Rubik',sans-serif; font-weight:900; font-size:16px; display:flex; align-items:center; justify-content:center;">3</div>
+          </div>
+          <div><div style="font-weight:700; font-size:16px; margin-bottom:4px;">המנעולן מגיע אליכם</div><div style="font-size:13px; color:#9298A4; line-height:1.5;">המחיר והזמן מתואמים ישירות מולו — בלי מתווכים נסתרים.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- services -->
+    <div style="padding:30px 22px 6px;">
+      <div style="font-size:11px; font-weight:800; letter-spacing:.16em; color:#F2B23C; margin-bottom:7px;">תחומי הטיפול</div>
+      <h2 style="font-family:'Rubik',sans-serif; font-weight:800; font-size:25px; margin:0 0 18px; line-height:1.12;">המנעולנים ברשת מטפלים בהכל</h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:11px;">
+        <div style="padding:17px 15px; border-radius:14px; background:#1C1F27; border:1px solid rgba(255,255,255,.06);"><div style="width:14px; height:18px; border:2.5px solid #F2B23C; border-top:none; border-radius:0 0 4px 4px; margin-bottom:11px; position:relative;"><div style="position:absolute; top:-9px; left:50%; transform:translateX(-50%); width:11px; height:11px; border:2.5px solid #F2B23C; border-bottom:none; border-radius:7px 7px 0 0;"></div></div><div style="font-weight:700; font-size:14.5px; margin-bottom:3px;">פריצת דלתות</div><div style="font-size:11.5px; color:#9298A4;">בית, משרד וכל סוג דלת</div></div>
+        <div style="padding:17px 15px; border-radius:14px; background:#1C1F27; border:1px solid rgba(255,255,255,.06);"><div style="width:18px; height:14px; border:2.5px solid #F2B23C; border-radius:3px; margin-bottom:11px;"></div><div style="font-weight:700; font-size:14.5px; margin-bottom:3px;">החלפת מנעולים</div><div style="font-size:11.5px; color:#9298A4;">צילינדרים ורב-בריח</div></div>
+        <div style="padding:17px 15px; border-radius:14px; background:#1C1F27; border:1px solid rgba(255,255,255,.06);"><div style="width:20px; height:11px; border:2.5px solid #F2B23C; border-radius:6px 6px 3px 3px; margin-bottom:11px;"></div><div style="font-weight:700; font-size:14.5px; margin-bottom:3px;">פריצת רכבים</div><div style="font-size:11.5px; color:#9298A4;">פתיחת רכב נעול</div></div>
+        <div style="padding:17px 15px; border-radius:14px; background:#1C1F27; border:1px solid rgba(255,255,255,.06);"><div style="width:16px; height:16px; border:2.5px solid #F2B23C; border-radius:4px; margin-bottom:11px; position:relative;"><div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:5px; height:5px; border-radius:999px; background:#F2B23C;"></div></div><div style="font-weight:700; font-size:14.5px; margin-bottom:3px;">כספות ומנעולים</div><div style="font-size:11.5px; color:#9298A4;">פתיחה ותחזוקה</div></div>
+      </div>
+    </div>
+
+    <!-- why us -->
+    <div style="padding:30px 22px 6px;">
+      <h2 style="font-family:'Rubik',sans-serif; font-weight:800; font-size:25px; margin:0 0 18px; line-height:1.12;">למה דרככם מתחילה אצלנו</h2>
+      <div style="display:flex; flex-direction:column; gap:13px;">
+        <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:7px; height:7px; background:#F2B23C; margin-top:7px;"></span><div><span style="font-weight:700; font-size:14.5px;">מענה אנושי אמיתי.</span><span style="font-size:14px; color:#9298A4;"> בן אדם עונה — לא בוט ולא תור.</span></div></div>
+        <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:7px; height:7px; background:#F2B23C; margin-top:7px;"></span><div><span style="font-weight:700; font-size:14.5px;">פריסה ארצית.</span><span style="font-size:14px; color:#9298A4;"> מנעולן קרוב כמעט לכל מקום.</span></div></div>
+        <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:7px; height:7px; background:#F2B23C; margin-top:7px;"></span><div><span style="font-weight:700; font-size:14.5px;">מנעולנים מאומתים.</span><span style="font-size:14px; color:#9298A4;"> עובדים רק עם אנשי מקצוע מנוסים.</span></div></div>
+        <div style="display:flex; gap:12px; align-items:flex-start;"><span style="flex:none; width:7px; height:7px; background:#F2B23C; margin-top:7px;"></span><div><span style="font-weight:700; font-size:14.5px;">זמינות מלאה.</span><span style="font-size:14px; color:#9298A4;"> 24 שעות, 7 ימים בשבוע.</span></div></div>
+      </div>
+    </div>
+
+    <!-- review -->
+    <div style="padding:30px 22px 8px;">
+      <div style="padding:20px; border-radius:16px; background:#1C1F27; border:1px solid rgba(255,255,255,.06);">
+        <div style="color:#F2B23C; font-size:14px; letter-spacing:2px; margin-bottom:10px;">★★★★★</div>
+        <p style="font-size:14.5px; line-height:1.6; margin:0 0 14px; color:#DBDEE4;">חייגתי באמצע הלילה, ותוך זמן קצר חיברו אותי למנעולן שהגיע ופתח את הדלת בלי נזק. שירות אנושי שמרגיש כמו הצלה.</p>
+        <div style="display:flex; align-items:center; gap:11px;">
+          <image-slot id="avatarA" style="width:36px; height:36px; flex:none; display:block;" shape="circle" placeholder="פנים"></image-slot>
+          <div><div style="font-size:13px; font-weight:700;">שירה מ.</div><div style="font-size:11px; color:#8b91a0;">רמת גן · לקוחה מאומתת</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- final CTA -->
+    <div style="margin-top:24px; padding:32px 22px 26px; background:#F2B23C; text-align:center;">
+      <h2 style="font-family:'Rubik',sans-serif; font-weight:900; font-size:27px; color:#14161B; margin:0 0 6px; line-height:1.05;">צריכים מנעולן עכשיו?</h2>
+      <p style="font-size:13.5px; color:#6e520c; font-weight:600; margin:0 0 18px;">אנחנו כאן. שיחה אחת ואתם מסודרים.</p>
+      <a href="tel:050-123-4567" style="display:flex; align-items:center; justify-content:center; gap:11px; text-decoration:none; padding:18px; border-radius:14px; background:#14161B;">
+        <span style="font-size:19px; color:#F2B23C;">☎︎</span>
+        <span style="font-family:'Rubik',sans-serif; font-weight:900; font-size:24px; color:#fff; letter-spacing:.02em;">050-123-4567</span>
+      </a>
+      <div style="font-size:10.5px; color:#6e520c; margin-top:16px; line-height:1.5; max-width:330px; margin-right:auto; margin-left:auto;">בדרך אליך מחברת בין לקוחות למנעולנים עצמאיים מורשים. המחיר והשירות מתואמים ישירות מול המנעולן.</div>
+    </div>
+
+    <!-- sticky call bar -->
+    <div style="position:sticky; bottom:0; z-index:9; padding:11px 16px calc(11px + env(safe-area-inset-bottom)); background:rgba(15,17,22,.93); backdrop-filter:blur(10px); border-top:1px solid rgba(255,255,255,.08); display:flex; align-items:center; gap:11px;">
+      <div style="flex:1; line-height:1.1;"><div style="font-size:10.5px; color:#8b91a0;">מוקד פעיל · 24/7</div><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:15px; color:#ECEEF2;">חייגו ונמצא לכם מנעולן</div></div>
+      <a href="tel:050-123-4567" style="display:flex; align-items:center; gap:9px; text-decoration:none; padding:13px 19px; border-radius:12px; background:#F2B23C;"><span style="font-size:16px; color:#14161B;">☎︎</span><span style="font-family:'Rubik',sans-serif; font-weight:900; font-size:16px; color:#14161B;">050-123-4567</span></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ B — HYBRID (dark hero -> light body) ============ -->
+<div style="position:absolute; left:512px; top:0; width:412px;">
+  <div data-drags-parent="1" style="display:flex; align-items:baseline; gap:10px; margin-bottom:14px; font-family:'Heebo',sans-serif;">
+    <span style="font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#b9ae98;">B</span>
+    <span style="font-size:13px; color:#8a8270;">היברידי · כותרת כהה, גוף בהיר (מומלץ)</span>
+  </div>
+
+  <div dir="rtl" data-screen-label="B — Hybrid" style="width:412px; border-radius:46px; overflow:hidden; background:#F6F3EC; box-shadow:0 40px 90px -34px rgba(60,45,20,.3), 0 0 0 1px rgba(0,0,0,.05); font-family:'Heebo',sans-serif; color:#1A1C22; position:relative;">
+
+    <!-- DARK hero -->
+    <div style="position:relative; background:#14161B; min-height:474px;">
+      <image-slot id="heroB" style="position:absolute; inset:0; width:100%; height:100%; display:block;" shape="rect" placeholder="גררו לכאן תמונת מנעולן בעבודה"></image-slot>
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,22,27,.42) 0%, rgba(20,22,27,.78) 60%, #14161B 100%);"></div>
+
+      <!-- top bar -->
+      <div style="position:relative; display:flex; align-items:center; justify-content:space-between; padding:18px 22px;">
+        <div style="display:flex; align-items:center; gap:11px;">
+          <div style="width:38px; height:38px; border-radius:11px; background:#F2B23C; display:flex; align-items:center; justify-content:center; position:relative;">
+            <div style="width:14px; height:14px; border:3.5px solid #14161B; border-bottom:none; border-radius:9px 9px 0 0; position:absolute; top:7px;"></div>
+            <div style="width:18px; height:13px; background:#14161B; border-radius:4px; position:absolute; bottom:8px;"></div>
+          </div>
+          <div style="line-height:1.05; color:#fff;"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:17px;">בדרך אליך</div><div style="font-size:10.5px; color:#b6bac4; font-weight:500;">מחברים אתכם למנעולן מקצועי</div></div>
+        </div>
+        <a href="tel:050-123-4567" style="text-decoration:none; display:flex; align-items:center; gap:6px; padding:8px 13px; border-radius:999px; border:1px solid rgba(242,178,60,.5); color:#F2B23C; font-size:13px; font-weight:700;"><span style="font-size:14px;">☎︎</span>חייגו</a>
+      </div>
+
+      <div style="position:relative; padding:120px 22px 30px; color:#fff;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:rgba(20,22,27,.5); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.14); margin-bottom:18px;">
+          <span style="position:relative; width:8px; height:8px;"><span style="position:absolute; inset:0; border-radius:999px; background:#4FB477;"></span><span style="position:absolute; inset:0; border-radius:999px; background:#4FB477; animation:brd-ring 2s infinite;"></span></span>
+          <span style="font-size:12px; font-weight:600; color:#E7E9ED;">מוקד אנושי פעיל עכשיו</span>
+        </div>
+        <div style="font-weight:700; font-size:15px; color:#F2B23C; margin-bottom:8px;">נעולים בחוץ?</div>
+        <h1 style="font-family:'Rubik',sans-serif; font-weight:900; font-size:43px; line-height:1.0; margin:0 0 16px; letter-spacing:-.01em;">מנעולן מקצועי<br><span style="color:#F2B23C;">בדרך אליך.</span></h1>
+        <p style="font-size:15px; line-height:1.55; color:#CDD0D8; margin:0 0 24px; max-width:330px;">שיחה אחת — ואנחנו מאתרים עבורכם מנעולן מורשה וזמין, הקרוב ביותר אליכם. בכל שעה, בכל אזור המרכז.</p>
+        <a href="tel:050-123-4567" style="display:flex; align-items:center; justify-content:center; gap:13px; text-decoration:none; padding:19px; border-radius:15px; background:#F2B23C; box-shadow:0 12px 30px -14px rgba(242,178,60,.7); border-top:1px solid rgba(255,255,255,.35); margin-bottom:12px;">
+          <span style="font-size:20px; color:#14161B;">☎︎</span>
+          <span style="text-align:right; line-height:1.0;"><span style="display:block; font-size:11px; font-weight:700; color:#6e520c;">חייגו עכשיו · זמינים 24/7</span><span style="display:block; font-family:'Rubik',sans-serif; font-weight:900; font-size:25px; color:#14161B; letter-spacing:.02em;">050-123-4567</span></span>
+        </a>
+        <div style="display:flex; align-items:center; justify-content:center; gap:16px; font-size:12px; color:#aeb2bd;"><span>מענה אנושי תוך שניות</span><span style="color:#555;">•</span><span>ללא התחייבות בשיחה</span></div>
+      </div>
+    </div>
+
+    <!-- trust strip (light) -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; background:#fff; border-bottom:1px solid rgba(33,29,22,.07);">
+      <div style="padding:18px 5px; text-align:center; border-left:1px solid rgba(33,29,22,.07);"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#1A1C22;">10K+</div><div style="font-size:9.5px; color:#8a8270; margin-top:3px;">פניות טופלו</div></div>
+      <div style="padding:18px 5px; text-align:center; border-left:1px solid rgba(33,29,22,.07);"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#1A1C22;">ארצית</div><div style="font-size:9.5px; color:#8a8270; margin-top:3px;">פריסת מנעולנים</div></div>
+      <div style="padding:18px 5px; text-align:center; border-left:1px solid rgba(33,29,22,.07);"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#1A1C22;">24/7</div><div style="font-size:9.5px; color:#8a8270; margin-top:3px;">מענה חי</div></div>
+      <div style="padding:18px 5px; text-align:center;"><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:18px; color:#C98A2B;">5.0★</div><div style="font-size:9.5px; color:#8a8270; margin-top:3px;">דירוג לקוחות</div></div>
+    </div>
+
+    <!-- how it works -->
+    <div style="padding:32px 24px 6px;">
+      <div style="font-size:11px; font-weight:800; letter-spacing:.16em; color:#C98A2B; margin-bottom:7px;">איך זה עובד</div>
+      <h2 style="font-family:'Rubik',sans-serif; font-weight:800; font-size:25px; margin:0 0 22px; line-height:1.12; color:#1A1C22;">שיחה אחת, וכל השאר עלינו</h2>
+      <div style="display:flex; flex-direction:column;">
+        <div style="display:flex; gap:16px;"><div style="display:flex; flex-direction:column; align-items:center; flex:none;"><div style="width:36px; height:36px; border-radius:50%; background:#1A1C22; color:#F2B23C; font-family:'Rubik',sans-serif; font-weight:900; font-size:15px; display:flex; align-items:center; justify-content:center;">1</div><div style="width:2px; flex:1; background:rgba(33,29,22,.12); margin:4px 0;"></div></div><div style="padding-bottom:20px;"><div style="font-weight:700; font-size:16px; margin-bottom:4px;">מתקשרים אלינו</div><div style="font-size:13px; color:#6e6a60; line-height:1.5;">מענה אנושי תוך שניות — מבינים מה קרה ואיפה אתם.</div></div></div>
+        <div style="display:flex; gap:16px;"><div style="display:flex; flex-direction:column; align-items:center; flex:none;"><div style="width:36px; height:36px; border-radius:50%; background:#1A1C22; color:#F2B23C; font-family:'Rubik',sans-serif; font-weight:900; font-size:15px; display:flex; align-items:center; justify-content:center;">2</div><div style="width:2px; flex:1; background:rgba(33,29,22,.12); margin:4px 0;"></div></div><div style="padding-bottom:20px;"><div style="font-weight:700; font-size:16px; margin-bottom:4px;">מאתרים לכם מנעולן</div><div style="font-size:13px; color:#6e6a60; line-height:1.5;">את הזמין והקרוב ביותר אליכם מתוך הרשת שלנו.</div></div></div>
+        <div style="display:flex; gap:16px;"><div style="display:flex; flex-direction:column; align-items:center; flex:none;"><div style="width:36px; height:36px; border-radius:50%; background:#C98A2B; color:#fff; font-family:'Rubik',sans-serif; font-weight:900; font-size:15px; display:flex; align-items:center; justify-content:center;">3</div></div><div><div style="font-weight:700; font-size:16px; margin-bottom:4px;">המנעולן מגיע אליכם</div><div style="font-size:13px; color:#6e6a60; line-height:1.5;">המחיר והזמן מתואמים ישירות מולו — בלי מתווכים נסתרים.</div></div></div>
+      </div>
+    </div>
+
+    <!-- services -->
+    <div style="padding:30px 24px 6px;">
+      <div style="font-size:11px; font-weight:800; letter-spacing:.16em; color:#C98A2B; margin-bottom:7px;">תחומי הטיפול</div>
+      <h2 style="font-family:'Rubik',sans-serif; font-weight:800; font-size:25px; margin:0 0 18px; line-height:1.12;">המנעולנים ברשת מטפלים בהכל</h2>
+      <div style="display:flex; flex-direction:column; gap:1px; border-radius:14px; overflow:hidden; border:1px solid rgba(33,29,22,.08);">
+        <div style="display:flex; align-items:center; gap:14px; padding:16px; background:#fff;"><div style="flex:none; width:14px; height:18px; border:2.5px solid #C98A2B; border-top:none; border-radius:0 0 4px 4px; position:relative;"><div style="position:absolute; top:-9px; left:50%; transform:translateX(-50%); width:11px; height:11px; border:2.5px solid #C98A2B; border-bottom:none; border-radius:7px 7px 0 0;"></div></div><div style="flex:1;"><div style="font-weight:700; font-size:14.5px;">פריצת דלתות</div><div style="font-size:12px; color:#7a7264;">בית, משרד וכל סוג דלת</div></div></div>
+        <div style="display:flex; align-items:center; gap:14px; padding:16px; background:#fff;"><div style="flex:none; width:18px; height:14px; border:2.5px solid #C98A2B; border-radius:3px;"></div><div style="flex:1;"><div style="font-weight:700; font-size:14.5px;">החלפת מנעולים</div><div style="font-size:12px; color:#7a7264;">צילינדרים ומנעולי רב-בריח</div></div></div>
+        <div style="display:flex; align-items:center; gap:14px; padding:16px; background:#fff;"><div style="flex:none; width:20px; height:11px; border:2.5px solid #C98A2B; border-radius:6px 6px 3px 3px;"></div><div style="flex:1;"><div style="font-weight:700; font-size:14.5px;">פריצת רכבים</div><div style="font-size:12px; color:#7a7264;">פתיחת רכב נעול</div></div></div>
+        <div style="display:flex; align-items:center; gap:14px; padding:16px; background:#fff;"><div style="flex:none; width:16px; height:16px; border:2.5px solid #C98A2B; border-radius:4px; position:relative;"><div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:5px; height:5px; border-radius:999px; background:#C98A2B;"></div></div><div style="flex:1;"><div style="font-weight:700; font-size:14.5px;">כספות ומנעולים מיוחדים</div><div style="font-size:12px; color:#7a7264;">פתיחה, תיקון ותחזוקה</div></div></div>
+      </div>
+    </div>
+
+    <!-- review -->
+    <div style="padding:30px 24px 10px;">
+      <div style="padding:22px; border-radius:16px; background:#fff; border:1px solid rgba(33,29,22,.07); box-shadow:0 8px 24px -16px rgba(60,45,20,.25);">
+        <div style="color:#C98A2B; font-size:14px; letter-spacing:2px; margin-bottom:10px;">★★★★★</div>
+        <p style="font-size:14.5px; line-height:1.62; margin:0 0 14px; color:#3a352c;">חייגתי באמצע הלילה, ותוך זמן קצר חיברו אותי למנעולן שהגיע ופתח את הדלת בלי נזק. שירות אנושי שמרגיש כמו הצלה.</p>
+        <div style="display:flex; align-items:center; gap:11px;">
+          <image-slot id="avatarB" style="width:36px; height:36px; flex:none; display:block;" shape="circle" placeholder="פנים"></image-slot>
+          <div><div style="font-size:13px; font-weight:700;">שירה מ.</div><div style="font-size:11px; color:#8a8270;">רמת גן · לקוחה מאומתת</div></div>
+          <div style="margin-right:auto; color:#C98A2B; font-size:11px; letter-spacing:1px;">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- final CTA (dark bookend) -->
+    <div style="margin-top:20px; padding:34px 24px 28px; background:#14161B; text-align:center; color:#fff;">
+      <h2 style="font-family:'Rubik',sans-serif; font-weight:900; font-size:28px; margin:0 0 6px; line-height:1.06;">צריכים מנעולן עכשיו?</h2>
+      <p style="font-size:13.5px; color:#aeb2bd; margin:0 0 20px;">אנחנו כאן. שיחה אחת ואתם מסודרים.</p>
+      <a href="tel:050-123-4567" style="display:flex; align-items:center; justify-content:center; gap:11px; text-decoration:none; padding:18px; border-radius:14px; background:#F2B23C; box-shadow:0 14px 32px -14px rgba(242,178,60,.6);">
+        <span style="font-size:19px; color:#14161B;">☎︎</span>
+        <span style="font-family:'Rubik',sans-serif; font-weight:900; font-size:24px; color:#14161B; letter-spacing:.02em;">050-123-4567</span>
+      </a>
+      <div style="font-size:10.5px; color:#7c8088; margin-top:16px; line-height:1.5; max-width:330px; margin-right:auto; margin-left:auto;">בדרך אליך מחברת בין לקוחות למנעולנים עצמאיים מורשים. המחיר והשירות מתואמים ישירות מול המנעולן.</div>
+    </div>
+
+    <!-- sticky call bar -->
+    <div style="position:sticky; bottom:0; z-index:9; padding:11px 16px calc(11px + env(safe-area-inset-bottom)); background:rgba(246,243,236,.94); backdrop-filter:blur(10px); border-top:1px solid rgba(33,29,22,.1); display:flex; align-items:center; gap:11px;">
+      <div style="flex:1; line-height:1.15;"><div style="font-size:10.5px; color:#8a8270;">מוקד פעיל · 24/7</div><div style="font-family:'Rubik',sans-serif; font-weight:800; font-size:15px; color:#1A1C22;">חייגו ונמצא לכם מנעולן</div></div>
+      <a href="tel:050-123-4567" style="display:flex; align-items:center; gap:9px; text-decoration:none; padding:13px 19px; border-radius:12px; background:#14161B;"><span style="font-size:16px; color:#F2B23C;">☎︎</span><span style="font-family:'Rubik',sans-serif; font-weight:900; font-size:16px; color:#fff;">050-123-4567</span></a>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
