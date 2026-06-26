@@ -15,6 +15,7 @@ BACKEND_PORT="${BACKEND_PORT:-3004}"
 FRONTEND_PORT="${FRONTEND_PORT:-3101}"
 ROUTE_BASE="/OnYourWay"
 ADMIN_BASE="$ROUTE_BASE/admin"
+LOWER_ROUTE_BASE="/onyourway"
 
 ADMIN_SITE_DIR="/var/www/on-your-way-admin"
 NGINX_CONF="/etc/nginx/sites-available/vee-app.co.il.conf"
@@ -107,6 +108,14 @@ pm2 save > /dev/null
 
 log "Writing Nginx route snippet for vee-app.co.il$ROUTE_BASE..."
 cat > "$NGINX_SNIPPET" <<NGINX
+location = $LOWER_ROUTE_BASE {
+    return 301 $ROUTE_BASE\$is_args\$args;
+}
+
+location ^~ $LOWER_ROUTE_BASE/ {
+    rewrite ^$LOWER_ROUTE_BASE(.*)$ $ROUTE_BASE\$1 permanent;
+}
+
 location = $ADMIN_BASE {
     return 301 $ADMIN_BASE/;
 }

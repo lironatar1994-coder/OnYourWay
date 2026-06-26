@@ -175,6 +175,7 @@ Production deployment:
 - Public frontend: `https://vee-app.co.il/OnYourWay`
 - Admin CRM: `https://vee-app.co.il/OnYourWay/admin`
 - Backend API: proxied through `/OnYourWay/api/` to PM2 process `on-your-way-backend` on port `3004`.
+- Lowercase `/onyourway` and `/onyourway/...` redirect to the canonical `/OnYourWay` route.
 
 ## Future Development Rules
 
