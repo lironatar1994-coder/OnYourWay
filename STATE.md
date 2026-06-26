@@ -1,7 +1,7 @@
 # STATE.md
 
 ## Current Status
-Phase 12 - Lowercase Production Route Redirect (Implementation In Progress)
+Phase 12 - Lowercase Production Route Redirect (Completed)
 
 ## Next Immediate Steps
 1. Build and inspect `/admin` after the Dispatch Control visual rework.
@@ -10,7 +10,7 @@ Phase 12 - Lowercase Production Route Redirect (Implementation In Progress)
 4. Confirm ranked suggestions, assign/retry/close actions, and sticky drawer footer still work.
 5. Manually verify the production CRM workflow at `https://vee-app.co.il/OnYourWay/admin`.
 6. Manually verify public lead capture at `https://vee-app.co.il/OnYourWay`.
-7. Verify lowercase routes `https://vee-app.co.il/onyourway` and `https://vee-app.co.il/onyourway/admin` redirect to the OnYourWay app.
+7. Manually verify lowercase routes `https://vee-app.co.il/onyourway` and `https://vee-app.co.il/onyourway/admin` in a browser.
 
 Historical Phase 8 manual checks:
 1. User should manually test Admin CRM dispatch flow at `http://localhost:5173`.
@@ -69,6 +69,8 @@ Historical Phase 8 manual checks:
 - Redeployed through GitHub and verified production externally: public route `https://vee-app.co.il/OnYourWay`, Admin route `https://vee-app.co.il/OnYourWay/admin`, Admin deep route `/OnYourWay/admin/leads`, and API route `/OnYourWay/api/health` all return 200.
 - PM2 processes now run from `/root/OnYourWay`: `on-your-way-backend` and `on-your-way-frontend`.
 - User reported lowercase `https://vee-app.co.il/onyourway` and lowercase admin route were falling through to the main Vee landing page because Nginx route matching is case-sensitive.
+- Added Nginx redirects so lowercase `/onyourway` and `/onyourway/...` redirect to canonical `/OnYourWay`.
+- Redeployed and verified externally: `https://vee-app.co.il/onyourway` resolves to the OnYourWay public app, `https://vee-app.co.il/onyourway/admin` resolves to the Admin CRM, and `/OnYourWay/api/health` returns OK.
 
 ## Frontend Review Outcome (Reviewed 2026-06-25)
 - Scope reviewed: BOTH frontends exist: operator Admin CRM (`/admin`) and public lead-capture landing (`/frontend`).
