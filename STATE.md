@@ -1,15 +1,15 @@
 # STATE.md
 
 ## Current Status
-Phase 11 - Deployment Route Update (Implementation In Progress)
+Phase 11 - Deployment Route Update (Completed)
 
 ## Next Immediate Steps
 1. Build and inspect `/admin` after the Dispatch Control visual rework.
 2. User should manually test Admin CRM dispatch flow at `http://localhost:5173`.
 3. Confirm urgent queue styling highlights phone-call tickets missing information, unassigned/new tickets, and failed WhatsApp dispatches.
 4. Confirm ranked suggestions, assign/retry/close actions, and sticky drawer footer still work.
-5. Deploy to GitHub repo `https://github.com/lironatar1994-coder/OnYourWay.git`.
-6. Verify production route `https://vee-app.co.il/OnYourWay` and Admin CRM route `https://vee-app.co.il/OnYourWay/admin`.
+5. Manually verify the production CRM workflow at `https://vee-app.co.il/OnYourWay/admin`.
+6. Manually verify public lead capture at `https://vee-app.co.il/OnYourWay`.
 
 Historical Phase 8 manual checks:
 1. User should manually test Admin CRM dispatch flow at `http://localhost:5173`.
@@ -62,6 +62,11 @@ Historical Phase 8 manual checks:
 - Production PM2 processes are running: `on-your-way-backend` on port `3004` and `on-your-way-frontend` on port `3101`.
 - Previous production Nginx subdomain config was installed for `on-your-way.vee-app.co.il` and `admin.on-your-way.vee-app.co.il`; it is superseded by the `/OnYourWay` route under `vee-app.co.il`.
 - User provided the real GitHub repo `https://github.com/lironatar1994-coder/OnYourWay` and chose path-based production routing under `vee-app.co.il/OnYourWay`, replacing the previous subdomain plan.
+- Updated deployment to use GitHub repo `https://github.com/lironatar1994-coder/OnYourWay.git` and remote directory `/root/OnYourWay`.
+- Updated public Next.js base path to `/OnYourWay`, Admin CRM Vite base path to `/OnYourWay/admin/`, and Admin router basename handling for path-based refresh/deep links.
+- Installed Nginx route snippet into the existing `vee-app.co.il` server block for `/OnYourWay`, `/OnYourWay/admin`, and `/OnYourWay/api`.
+- Redeployed through GitHub and verified production externally: public route `https://vee-app.co.il/OnYourWay`, Admin route `https://vee-app.co.il/OnYourWay/admin`, Admin deep route `/OnYourWay/admin/leads`, and API route `/OnYourWay/api/health` all return 200.
+- PM2 processes now run from `/root/OnYourWay`: `on-your-way-backend` and `on-your-way-frontend`.
 
 ## Frontend Review Outcome (Reviewed 2026-06-25)
 - Scope reviewed: BOTH frontends exist: operator Admin CRM (`/admin`) and public lead-capture landing (`/frontend`).
