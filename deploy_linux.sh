@@ -13,7 +13,7 @@ BACKEND_PROCESS="on-your-way-backend"
 FRONTEND_PROCESS="on-your-way-frontend"
 BACKEND_PORT="${BACKEND_PORT:-3004}"
 FRONTEND_PORT="${FRONTEND_PORT:-3101}"
-SOS_ANALYTICS_API_URL="${SOS_ANALYTICS_API_URL:-https://sosbaderech.co.il/api/landing-analytics}"
+SOS_ANALYTICS_API_URL="${SOS_ANALYTICS_API_URL:-https://vee-app.co.il/sos/api/landing-analytics}"
 ROUTE_BASE="/OnYourWay"
 ADMIN_BASE="$ROUTE_BASE/admin"
 LOWER_ROUTE_BASE="/onyourway"
@@ -57,7 +57,9 @@ ensure_backend_env() {
     if ! grep -q '^DATABASE_URL=' .env; then
         echo "DATABASE_URL=file:./prisma/prod.db" >> .env
     fi
-    if ! grep -q '^SOS_ANALYTICS_API_URL=' .env; then
+    if grep -q '^SOS_ANALYTICS_API_URL=' .env; then
+        sed -i "s|^SOS_ANALYTICS_API_URL=.*|SOS_ANALYTICS_API_URL=$SOS_ANALYTICS_API_URL|" .env
+    else
         echo "SOS_ANALYTICS_API_URL=$SOS_ANALYTICS_API_URL" >> .env
     fi
 }

@@ -77,6 +77,7 @@ Historical Phase 8 manual checks:
 - Removed the green-dot public hero status line from all `/sos-landing-standalone` public landing/guide pages and updated the standalone content strategy so future pages start directly with the urgency line or headline.
 - Prepared `/sos-landing-standalone` for the new production domain `sosbaderech.co.il` and phone `050-8611888`: app defaults, local start script, deploy scripts, `.env.example`, README launch checklist, and local production verification now use the real domain/phone. DNS did not resolve yet at verification time, so HTTPS/Search Console should wait until domain activation and DNS records are live.
 - Consolidated SOS visitor analytics into the Admin CRM: added `/admin/analytics`, a backend `/analytics/sos` proxy to the standalone SOS analytics API, deploy-time `SOS_ANALYTICS_API_URL` wiring, compact filters, metrics, and page-performance table.
+- Deployed Admin CRM SOS analytics to production and pointed production `SOS_ANALYTICS_API_URL` at the live shared-host endpoint `https://vee-app.co.il/sos/api/landing-analytics` because `sosbaderech.co.il` DNS is not resolving yet.
 
 ## Frontend Review Outcome (Reviewed 2026-06-25)
 - Scope reviewed: BOTH frontends exist: operator Admin CRM (`/admin`) and public lead-capture landing (`/frontend`).

@@ -6,7 +6,7 @@ const ALLOWED_FILTERS = ['service', 'city', 'source', 'from', 'to'];
 
 function buildAnalyticsUrl(query) {
   const url = new URL(
-    process.env.SOS_ANALYTICS_API_URL || 'https://sosbaderech.co.il/api/landing-analytics',
+    process.env.SOS_ANALYTICS_API_URL || 'https://vee-app.co.il/sos/api/landing-analytics',
   );
 
   for (const key of ALLOWED_FILTERS) {
