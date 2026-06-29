@@ -1,4 +1,4 @@
-import { LayoutDashboard, Radio, Ticket, Users } from 'lucide-react';
+import { BarChart3, LayoutDashboard, Radio, Ticket, Users } from 'lucide-react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 
 import { api } from './api/client';
@@ -6,12 +6,14 @@ import { useHealth } from './api/hooks';
 
 const NAV = [
   { to: '/dashboard', label: 'לוח בקרה', icon: LayoutDashboard },
+  { to: '/analytics', label: 'אנליטיקה', icon: BarChart3 },
   { to: '/leads', label: 'פניות / קריאות', icon: Ticket },
   { to: '/providers', label: 'ספקים', icon: Users },
 ];
 
 const PAGE_META: Record<string, { title: string; sub: string }> = {
   '/dashboard': { title: 'מרכז הבקרה', sub: 'ניתוב פניות וסטטוס התראות בזמן אמת' },
+  '/analytics': { title: 'אנליטיקת SOS', sub: 'ביקורים, לחיצות חיוג וביצועי דפי נחיתה' },
   '/leads': { title: 'פניות / קריאות', sub: 'פניות לקוחות נכנסות ושיוכן לספקים' },
   '/providers': { title: 'ספקים', sub: 'רשת השירות ופרופילי ההתאמה' },
 };
@@ -19,7 +21,7 @@ const PAGE_META: Record<string, { title: string; sub: string }> = {
 function HealthPill() {
   const { data, isError, isLoading } = useHealth();
   const online = !isError && !isLoading && data?.status === 'ok';
-  const label = isLoading ? 'מתחבר…' : online ? 'השרת מחובר' : 'השרת מנותק';
+  const label = isLoading ? 'מתחבר...' : online ? 'השרת מחובר' : 'השרת מנותק';
   return (
     <span
       className={`health-pill ${online ? 'online' : isLoading ? '' : 'offline'}`}
@@ -62,7 +64,7 @@ export function App() {
         <div className="sidebar-foot">
           ניתוב פניות בזמן אמת
           <br />
-          שיגור דרך וואטסאפ
+          שיגור דרך WhatsApp
         </div>
       </aside>
 

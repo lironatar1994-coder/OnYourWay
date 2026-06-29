@@ -13,6 +13,7 @@ BACKEND_PROCESS="on-your-way-backend"
 FRONTEND_PROCESS="on-your-way-frontend"
 BACKEND_PORT="${BACKEND_PORT:-3004}"
 FRONTEND_PORT="${FRONTEND_PORT:-3101}"
+SOS_ANALYTICS_API_URL="${SOS_ANALYTICS_API_URL:-https://sosbaderech.co.il/api/landing-analytics}"
 ROUTE_BASE="/OnYourWay"
 ADMIN_BASE="$ROUTE_BASE/admin"
 LOWER_ROUTE_BASE="/onyourway"
@@ -56,6 +57,9 @@ ensure_backend_env() {
     if ! grep -q '^DATABASE_URL=' .env; then
         echo "DATABASE_URL=file:./prisma/prod.db" >> .env
     fi
+    if ! grep -q '^SOS_ANALYTICS_API_URL=' .env; then
+        echo "SOS_ANALYTICS_API_URL=$SOS_ANALYTICS_API_URL" >> .env
+    fi
 }
 
 log "Starting On Your Way deployment..."
@@ -95,7 +99,7 @@ NEXT_BASE_PATH="$ROUTE_BASE" NEXT_PUBLIC_BASE_PATH="$ROUTE_BASE" BACKEND_URL="ht
 log "Starting/restarting PM2 backend process..."
 cd "$APP_ROOT/backend"
 pm2 delete "$BACKEND_PROCESS" > /dev/null 2>&1 || true
-PORT="$BACKEND_PORT" DATABASE_URL="file:./prisma/prod.db" \
+PORT="$BACKEND_PORT" DATABASE_URL="file:./prisma/prod.db" SOS_ANALYTICS_API_URL="$SOS_ANALYTICS_API_URL" \
     pm2 start index.js --name "$BACKEND_PROCESS" --cwd "$APP_ROOT/backend" --update-env
 
 log "Starting/restarting PM2 public frontend process..."

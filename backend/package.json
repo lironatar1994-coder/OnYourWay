@@ -9,7 +9,7 @@
     "db:push": "prisma db push",
     "db:setup": "node scripts/setup-db.js",
     "start": "node index.js",
-    "test": "prisma validate && node --check index.js && node --check lib/prisma.js && node --check lib/provider-matching.js && node --check routes/providers.js && node --check routes/leads.js && node --check scripts/setup-db.js && node --check services/whatsapp/index.js"
+    "test": "prisma validate && node --check index.js && node --check lib/prisma.js && node --check lib/provider-matching.js && node --check routes/providers.js && node --check routes/leads.js && node --check routes/analytics.js && node --check scripts/setup-db.js && node --check services/whatsapp/index.js"
   },
   "keywords": [],
   "author": "",

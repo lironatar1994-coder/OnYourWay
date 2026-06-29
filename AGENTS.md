@@ -8,7 +8,7 @@
 * `/frontend` - Next.js landing pages.
 * `/backend` - Node.js core routing API (Express).
 * `/backend/services/whatsapp` - Baileys WebSocket integration logic.
-* `/admin` - React 19 + Vite dashboard for provider/lead CRM.
+* `/admin` - React 19 + Vite dashboard for provider/lead CRM and SOS visitor analytics.
 
 ## Frontend Source Of Truth
 * Always read `FRONTEND.md` before changing `/frontend` or `/admin`.
@@ -50,6 +50,7 @@ The current frontend implementation was reviewed. Treat the design direction bel
 * `/admin` — React 19 + Vite + TypeScript. State/fetching via `@tanstack/react-query` (polls leads/providers/health every 5s so async WhatsApp status updates appear live). Routing via `react-router-dom`. Hand-authored CSS design tokens (no UI kit). Dev server: `npm run dev` → http://localhost:5173. Vite must use `--configLoader runner` in this Windows workspace.
 * `/frontend` — Next.js (App Router) + TypeScript. Lead form posts to a server route handler (`app/api/leads/route.ts`) that proxies to the backend and tags `source: "web-form"`. **Runs on port 3101** (`next dev -p 3101`) to avoid backend port 3000 and the local 3001 bind issue seen during review.
 * Backend dispatch action endpoints exist for lead assign/reassign, WhatsApp retry, and lead close. Provider delete and single-record GETs are still not available in the API.
+* Backend SOS analytics proxy exists at `/analytics/sos` and `/api/analytics/sos`; it forwards to `SOS_ANALYTICS_API_URL` so the Admin CRM can show standalone SOS visitor analytics inside `/admin/analytics`.
 * Frontend skills are available locally outside the repo: `frontend-design` and `bencium-innovative-ux-designer`. Use `frontend-design` for frontend review/build work unless the user asks for the other skill.
 
 ## 🛑 Constraints & "Do-Not" Rules

@@ -114,3 +114,47 @@ export interface LeadActionResult {
   lead: Lead;
   provider?: Provider;
 }
+
+export interface SosAnalyticsFilters {
+  service?: string;
+  city?: string;
+  source?: string;
+  from?: string;
+  to?: string;
+}
+
+export interface SosAnalyticsRow {
+  service: string;
+  serviceSlug: string;
+  city: string;
+  citySlug: string;
+  path: string;
+  visits: number;
+  uniqueVisitors: number;
+  humanSignalVisits: number;
+  callClicks: number;
+  fastCallClicks: number;
+  whatsappClicks: number;
+  copyPhoneClicks: number;
+  conversionRate: number;
+  qualifiedConversionRate: number;
+  avgTimeToCallMs: number | null;
+  lastActivityAt: string | null;
+  topSource: string;
+}
+
+export interface SosAnalyticsResponse {
+  rows: SosAnalyticsRow[];
+  totals: {
+    visits: number;
+    uniqueVisitors: number;
+    humanSignalVisits: number;
+    callClicks: number;
+    fastCallClicks: number;
+    whatsappClicks: number;
+    copyPhoneClicks: number;
+    conversionRate: number;
+    qualifiedConversionRate: number;
+    avgTimeToCallMs: number | null;
+  };
+}

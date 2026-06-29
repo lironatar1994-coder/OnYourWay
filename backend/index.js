@@ -4,6 +4,7 @@ import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { analyticsRouter } from './routes/analytics.js';
 import { leadsRouter } from './routes/leads.js';
 import { providersRouter } from './routes/providers.js';
 import { startWhatsAppService } from './services/whatsapp/index.js';
@@ -29,6 +30,8 @@ app.get('/health', (_req, res) => {
 app.use('/providers', providersRouter);
 app.use('/leads', leadsRouter);
 app.use('/api/leads', leadsRouter);
+app.use('/analytics', analyticsRouter);
+app.use('/api/analytics', analyticsRouter);
 
 app.use((error, _req, res, _next) => {
   console.error('[api] Request failed:', error);

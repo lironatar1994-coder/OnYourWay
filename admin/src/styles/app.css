@@ -920,6 +920,100 @@ td.muted,
   justify-content: center;
 }
 
+/* ===== SOS analytics ===== */
+.analytics-filterbar {
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.filter-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  height: 30px;
+  margin-inline-end: auto;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.compact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 116px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.compact-field input {
+  width: 132px;
+  height: 30px;
+  padding: 0 var(--sp-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--ink);
+  outline: none;
+  font-weight: 500;
+}
+
+.compact-field input:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-bg);
+}
+
+.analytics-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+
+.summary-item {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 42px;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 88%, var(--brand-bg));
+}
+
+.summary-item svg {
+  color: var(--brand);
+}
+
+.summary-item span {
+  color: var(--ink-3);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.summary-item strong {
+  color: var(--ink);
+  font-size: var(--fs-lg);
+  font-variant-numeric: tabular-nums;
+}
+
+.analytics-panel {
+  padding: var(--sp-4);
+}
+
+.analytics-table {
+  border-radius: var(--radius);
+}
+
+.analytics-table table.data tbody tr {
+  cursor: default;
+}
+
+.analytics-table table.data tbody td {
+  max-width: 260px;
+}
+
 /* ===== RTL adjustments ===== */
 /* Keep technical/numeric runs (phones, JIDs, scores) intact within RTL text. */
 .mono {
@@ -978,6 +1072,100 @@ td.muted,
   left: 0;
   border-left: none;
   border-right: 1px solid var(--border);
+}
+
+/* ===== Narrow admin shell ===== */
+@media (max-width: 760px) {
+  .shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .sidebar {
+    min-width: 0;
+    border-left: 0;
+    border-bottom: 1px solid #0c1118;
+  }
+
+  [dir='rtl'] .sidebar {
+    border-left: 0;
+    border-bottom: 1px solid #0c1118;
+  }
+
+  .brand {
+    height: 44px;
+    padding: 0 var(--sp-3);
+  }
+
+  .nav {
+    flex-direction: row;
+    gap: var(--sp-1);
+    overflow-x: auto;
+    padding: var(--sp-2) var(--sp-3);
+  }
+
+  .nav-link {
+    flex: 0 0 auto;
+    min-height: 34px;
+  }
+
+  .nav-link.active {
+    box-shadow: inset 0 -3px 0 var(--brand-border);
+  }
+
+  .sidebar-foot {
+    display: none;
+  }
+
+  .workspace {
+    height: auto;
+    min-height: 0;
+  }
+
+  .topbar {
+    height: auto;
+    min-height: var(--topbar-h);
+    align-items: flex-start;
+    padding: var(--sp-3);
+  }
+
+  .main {
+    padding: var(--sp-3);
+  }
+
+  .metric-strip {
+    grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-3);
+  }
+
+  .toolbar.analytics-filterbar {
+    align-items: stretch;
+  }
+
+  .filter-title {
+    width: 100%;
+    margin-inline-end: 0;
+  }
+
+  .compact-field {
+    flex: 1 1 132px;
+    min-width: 132px;
+  }
+
+  .compact-field input {
+    width: 100%;
+  }
+
+  .analytics-summary {
+    grid-template-columns: 1fr;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-3);
+  }
+
+  .analytics-panel {
+    padding: var(--sp-3);
+  }
 }
 
 /* Switch knob rests on the right and travels left when on. */

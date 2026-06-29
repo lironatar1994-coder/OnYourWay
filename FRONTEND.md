@@ -19,7 +19,7 @@
 
 ### `/admin` - Operator CRM Dashboard
 - Framework: React 19 + Vite.
-- Purpose: internal dispatch console for providers, client tickets, matching, and WhatsApp delivery status.
+- Purpose: internal dispatch console for providers, client tickets, matching, WhatsApp delivery status, and SOS visitor analytics.
 - Local port: `5173`.
 - Backend connection: live Express API on `localhost:3000`, configured with `VITE_API_URL`.
 - Vite must use `--configLoader runner` in this Windows workspace; default config bundling can fail with access denied when esbuild tries to traverse outside the workspace.
@@ -39,6 +39,7 @@
   - assigned/unassigned counts
   - active provider count
   - WhatsApp notification status counts
+  - SOS visitor analytics from the standalone landing app
 - Operators must be able to manage providers:
   - create provider
   - edit provider
@@ -63,6 +64,13 @@
 - Phone-call tickets without `requestText` must show a distinct amber "Needs Information" state.
 - Operators must be able to enter `serviceType` and `requestText` in the ticket drawer, save them, and then manually fetch smart provider suggestions.
 - Ranked suggestions must show both score and human-readable reasons. Reasons should explain practical matches, such as service profile match, service-area match, exact category match, or priority.
+
+### Admin SOS Analytics
+- `/admin/analytics` is the single operator-facing place for SOS visitor analytics.
+- The standalone SOS app remains responsible for public pages, tracking events, and its local analytics database.
+- The Admin CRM must read SOS analytics through the Express backend proxy at `/analytics/sos` rather than calling the public SOS app directly from the browser.
+- The backend proxy source is configured with `SOS_ANALYTICS_API_URL`; production defaults to `https://sosbaderech.co.il/api/landing-analytics`, and local development can point to `http://localhost:3200/api/landing-analytics`.
+- The analytics view should stay compact and operational: metric strip, filters, and dense page-performance table. It should not become a marketing dashboard.
 
 ## Design Direction
 
@@ -107,6 +115,7 @@
 - The backend returned ranked provider suggestions and assigned a toilet/leak specialist for a toilet-leak request.
 - `/admin` covers the intended Core CRM feature set:
   - dashboard metrics
+  - SOS visitor analytics view
   - provider table and forms
   - provider `serviceText`
   - leads/tickets table
@@ -166,6 +175,7 @@ Runtime URLs:
 - Backend API: `http://localhost:3000`
 - Admin CRM: `http://localhost:5173`
 - Public frontend: `http://localhost:3101`
+- SOS analytics proxy: `http://localhost:3000/analytics/sos`
 
 Production deployment:
 
@@ -175,6 +185,7 @@ Production deployment:
 - Public frontend: `https://vee-app.co.il/OnYourWay`
 - Admin CRM: `https://vee-app.co.il/OnYourWay/admin`
 - Backend API: proxied through `/OnYourWay/api/` to PM2 process `on-your-way-backend` on port `3004`.
+- Admin SOS analytics calls `/OnYourWay/api/analytics/sos`, which the backend proxies to `SOS_ANALYTICS_API_URL`.
 - Lowercase `/onyourway` and `/onyourway/...` redirect to the canonical `/OnYourWay` route.
 
 ## Future Development Rules

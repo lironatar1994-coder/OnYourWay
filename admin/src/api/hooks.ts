@@ -8,6 +8,7 @@ import { api } from './client';
 import type {
   CreateLeadInput,
   CreateProviderInput,
+  SosAnalyticsFilters,
   UpdateLeadInput,
   UpdateProviderInput,
 } from './types';
@@ -21,6 +22,7 @@ export const queryKeys = {
   providers: ['providers'] as const,
   leads: ['leads'] as const,
   leadSuggestions: (id: string) => ['leads', id, 'suggestions'] as const,
+  sosAnalytics: (filters: SosAnalyticsFilters) => ['analytics', 'sos', filters] as const,
 };
 
 export function useHealth() {
@@ -53,6 +55,14 @@ export function useLeadSuggestions(id: string | null) {
     queryKey: id ? queryKeys.leadSuggestions(id) : ['leads', 'none', 'suggestions'],
     queryFn: () => api.getLeadSuggestions(id as string),
     enabled: Boolean(id),
+  });
+}
+
+export function useSosAnalytics(filters: SosAnalyticsFilters) {
+  return useQuery({
+    queryKey: queryKeys.sosAnalytics(filters),
+    queryFn: () => api.getSosAnalytics(filters),
+    refetchInterval: LIVE_REFETCH_MS,
   });
 }
 

@@ -10,6 +10,7 @@ backend/services/whatsapp/auth/
 .tmp/
 .claude/
 .codex/
+sos-landing-standalone/
 
 # Frontend build artifacts
 admin/dist/

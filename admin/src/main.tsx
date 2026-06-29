@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import { App } from './App';
+import { AnalyticsPage } from './pages/AnalyticsPage';
 import { Dashboard } from './pages/Dashboard';
 import { LeadsPage } from './pages/LeadsPage';
 import { ProvidersPage } from './pages/ProvidersPage';
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="/dashboard" replace /> },
       { path: 'dashboard', element: <Dashboard /> },
+      { path: 'analytics', element: <AnalyticsPage /> },
       { path: 'leads', element: <LeadsPage /> },
       { path: 'providers', element: <ProvidersPage /> },
       { path: '*', element: <Navigate to="/dashboard" replace /> },

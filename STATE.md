@@ -1,7 +1,7 @@
 # STATE.md
 
 ## Current Status
-Phase 12 - Lowercase Production Route Redirect (Completed)
+Phase 13 - Admin SOS Analytics Consolidation (Completed)
 
 ## Next Immediate Steps
 1. Build and inspect `/admin` after the Dispatch Control visual rework.
@@ -11,6 +11,7 @@ Phase 12 - Lowercase Production Route Redirect (Completed)
 5. Manually verify the production CRM workflow at `https://vee-app.co.il/OnYourWay/admin`.
 6. Manually verify public lead capture at `https://vee-app.co.il/OnYourWay`.
 7. Manually verify lowercase routes `https://vee-app.co.il/onyourway` and `https://vee-app.co.il/onyourway/admin` in a browser.
+8. Manually verify Admin CRM analytics at `http://localhost:5173/analytics` and production `/OnYourWay/admin/analytics`.
 
 Historical Phase 8 manual checks:
 1. User should manually test Admin CRM dispatch flow at `http://localhost:5173`.
@@ -71,6 +72,11 @@ Historical Phase 8 manual checks:
 - User reported lowercase `https://vee-app.co.il/onyourway` and lowercase admin route were falling through to the main Vee landing page because Nginx route matching is case-sensitive.
 - Added Nginx redirects so lowercase `/onyourway` and `/onyourway/...` redirect to canonical `/OnYourWay`.
 - Redeployed and verified externally: `https://vee-app.co.il/onyourway` resolves to the OnYourWay public app, `https://vee-app.co.il/onyourway/admin` resolves to the Admin CRM, and `/OnYourWay/api/health` returns OK.
+- Added SEO guide cluster inside `/sos-landing-standalone`: `/guides`, `/guides/locked-outside-home`, `/guides/locksmith-price-israel`, and `/guides/key-left-in-car`, with Hebrew reader-first guide content, Article/FAQ schema, sitemap entries, and internal links from locksmith/car-locksmith landing pages.
+- Verified the car-locksmith SEO expansion inside `/sos-landing-standalone`: shorter `/car-locksmith` hero copy, new `/guides/car-locked-no-damage`, first validated car city page `/car-locksmith/tel-aviv`, sitemap coverage, and updated standalone strategy docs to keep future agents from mass-cloning car city pages.
+- Removed the green-dot public hero status line from all `/sos-landing-standalone` public landing/guide pages and updated the standalone content strategy so future pages start directly with the urgency line or headline.
+- Prepared `/sos-landing-standalone` for the new production domain `sosbaderech.co.il` and phone `050-8611888`: app defaults, local start script, deploy scripts, `.env.example`, README launch checklist, and local production verification now use the real domain/phone. DNS did not resolve yet at verification time, so HTTPS/Search Console should wait until domain activation and DNS records are live.
+- Consolidated SOS visitor analytics into the Admin CRM: added `/admin/analytics`, a backend `/analytics/sos` proxy to the standalone SOS analytics API, deploy-time `SOS_ANALYTICS_API_URL` wiring, compact filters, metrics, and page-performance table.
 
 ## Frontend Review Outcome (Reviewed 2026-06-25)
 - Scope reviewed: BOTH frontends exist: operator Admin CRM (`/admin`) and public lead-capture landing (`/frontend`).

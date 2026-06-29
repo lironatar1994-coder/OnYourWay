@@ -7,6 +7,8 @@ import type {
   LeadActionResult,
   LeadSuggestionsResult,
   Provider,
+  SosAnalyticsFilters,
+  SosAnalyticsResponse,
   UpdateLeadInput,
   UpdateProviderInput,
 } from './types';
@@ -46,6 +48,17 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   }
 
   return body as T;
+}
+
+function toQueryString(filters: SosAnalyticsFilters) {
+  const params = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(filters)) {
+    if (value) params.set(key, value);
+  }
+
+  const query = params.toString();
+  return query ? `?${query}` : '';
 }
 
 export const api = {
@@ -101,4 +114,7 @@ export const api = {
       method: 'PATCH',
       body: JSON.stringify({ resolutionStatus }),
     }).then((r) => r.lead),
+
+  getSosAnalytics: (filters: SosAnalyticsFilters) =>
+    request<SosAnalyticsResponse>(`/analytics/sos${toQueryString(filters)}`),
 };
