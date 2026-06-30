@@ -69,7 +69,7 @@
 - `/admin/analytics` is the single operator-facing place for SOS visitor analytics.
 - The standalone SOS app remains responsible for public pages, tracking events, and its local analytics database.
 - The Admin CRM must read SOS analytics through the Express backend proxy at `/analytics/sos` rather than calling the public SOS app directly from the browser.
-- The backend proxy source is configured with `SOS_ANALYTICS_API_URL`; production currently defaults to `https://vee-app.co.il/sos/api/landing-analytics` until `sosbaderech.co.il` DNS is live, and local development can point to `http://localhost:3200/api/landing-analytics`.
+- The backend proxy source is configured with `SOS_ANALYTICS_API_URL`; production defaults to `https://sosbaderech.co.il/api/landing-analytics`, and local development can point to `http://localhost:3200/api/landing-analytics`.
 - The analytics view should stay compact and operational: metric strip, filters, and dense page-performance table. It should not become a marketing dashboard.
 
 ## Design Direction
